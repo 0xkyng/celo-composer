@@ -20,4 +20,13 @@ It is designed to provide a stablecoin (cUSD) that is pegged to the US dollar, a
 
 #### Getting Started with Celo Composer
 
-You'll need to install the Celo Composer CLI, which is a command-line interface that interacts with the Celo network. This is because Celo Composer is an open-source tool that is available on Github.
+You'll need to install the Celo Composer CLI, which is a command-line interface that interacts with the Celo network in other to get started. This is because Celo Composer is an open-source tool that is available on Github.
+
+But firstly, ensure that you have **[NodeJS](https://nodejs.org/en/download)** and **[NPM](https://www.npmjs.com/)** installed on your computer. Next, open a terminal and run the following command to install the Composer CLI:
+
+`npm install -g @celo/contractkit`
+
+You can run the command below to verify that the CLI is installed correctly, once the installation is complete:
+
+`celocli`
+
