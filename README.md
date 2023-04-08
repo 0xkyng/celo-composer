@@ -88,7 +88,7 @@ Once you enter the details, Celo Composer will create a new smart contract file 
 
 For the sake of this article, the smart contract file will contain the basic structure of a Celo smart contract and a sample function.
 
-```arduino
+```solidity
 pragma solidity ^0.8.0;
 
 contract MyContract {
