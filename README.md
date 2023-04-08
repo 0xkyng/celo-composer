@@ -161,5 +161,74 @@ Let's now go through this code step by step:
 8. In the test case, you call the `setMyVariable` function on the `contract` instance, passing in a new value. We then use the `expect `function from `chai` to check that the value of the `myVariable` variable is equal to the new value.
 
 You will then use the following command to run the test:
-`npx hardhat test
-`
+
+`npx hardhat test`
+
+This will run the `mycontract.test.js` test file and output the results.
+
+#### Deploying the Smart Contract to the Celo Network
+
+Now that you've tested the smart contract and confirmed that it works as expected, you can deploy it to the Celo network using Celo Composer.
+
+But first, you'll need to make sure that you have the Celo network configuration set up in your `hardhat.config.js` file. You can do this by adding the following code:
+
+```javascript
+require("@nomiclabs/hardhat-waffle");
+require("@nomiclabs/hardhat-etherscan");
+require("@celo/hardhat-plugin");
+
+const mnemonic = process.env.MNEMONIC;
+
+module.exports = {
+  solidity: {
+    compilers: [
+      {
+        version: "0.8.4",
+      },
+    ],
+  },
+  networks: {
+    hardhat: {},
+    alfajores: {
+      url: "https://alfajores-forno.celo-testnet.org",
+      accounts: { mnemonic: mnemonic },
+      gasPrice: 1000000000,
+    },
+    mainnet: {
+      url: "https://forno.celo.org",
+      accounts: { mnemonic: mnemonic },
+      gasPrice: 1000000000,
+    },
+  },
+  etherscan: {
+    apiKey: process.env.ETHERSCAN_API_KEY,
+  },
+  celo: {
+    chainId: 44787,
+    from: "0x<YOUR_CELO_ADDRESS>",
+    gas: 10000000,
+    gasPrice: 1000000000,
+  },
+};
+```
+
+This sets up the `alfajores` and `mainnet` networks, which we can use to deploy our contract to the Celo network.
+
+Once you have a Celo account set up, you can use Celo Composer to deploy your `MyContract` contract to the Celo network.
+
+Compile the contract using the following command:
+
+`celocli compile`
+
+Deploy the contract to the Celo network using the following command:
+
+`celocli deploy MyContract --from <YOUR_CELO_ADDRESS>`
+
+Confirm the deployment on the Celo network using the following command:
+
+`celocli contract:show MyContract`
+
+
+Congratulations! You have successfully deployed your `MyContract` contract to the Celo network using Celo Composer. You can now interact with your contract using the celocli command line tool or any other Celo-compatible wallet or application.
+
+
