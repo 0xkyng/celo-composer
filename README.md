@@ -106,5 +106,50 @@ In this example, the smart contract is called "MyContract". It has a public vari
 
 Before deploying the smart contract to the Celo network, you'll need to test it to ensure that it works as expected. But first, you need to install some additional dependencies to enable Hardhat to interact with the Celo network. You'll need to install `@celo/contractkit` and `@nomiclabs/hardhat-etherscan` as follows:
 
+`npm install --save-dev @celo/contractkit @nomiclabs/hardhat-etherscan`
+
+Once these dependencies have been successfully installed, you can create a new test file in the `test` directory of our project, called `mycontract.test.js`.
+
+```javascript
+const { expect } = require("chai");
+const { ethers } = require("hardhat");
+const { Contract } = require("@ethersproject/contracts");
+const { createFixtureLoader } = require("hardhat-ethers");
+
+describe("MyContract", function () {
+  let contract;
+  let accounts;
+
+  const fixture = async () => {
+    const [deployer, ...accounts] = await ethers.getSigners();
+
+    const MyContract = await ethers.getContractFactory("MyContract", deployer);
+    const contract = await MyContract.deploy();
+    await contract.deployed();
+
+    return {
+      contract,
+      deployer,
+      accounts,
+    };
+  };
+
+  const loadFixture = createFixtureLoader([ethers.provider]);
+
+  beforeEach(async function () {
+    ({ contract, deployer, accounts } = await loadFixture(fixture));
+  });
+
+  it("should set the variable correctly", async function () {
+    const newValue = 42;
+    await contract.setMyVariable(newValue);
+    expect(await contract.myVariable()).to.equal(newValue);
+  });
+});
+```
+
+
+
+
 
 
