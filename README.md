@@ -1,5 +1,19 @@
 # Celo Composer: The Ultimate Guide on How to Use It
 
+## Table of Content
+- [Celo Composer: The Ultimate Guide on How to Use It](#celo-composer-the-ultimate-guide-on-how-to-use-it)
+  - [Table of Content](#table-of-content)
+  - [Introdcution](#introdcution)
+  - [Requirements](#requirements)
+  - [What Is Celo?](#what-is-celo)
+  - [What Is the Celo Composer?](#what-is-the-celo-composer)
+  - [How to Create, Test and Deploy Smart Contracts With Celo Composer](#how-to-create-test-and-deploy-smart-contracts-with-celo-composer)
+    - [Getting Started with Celo Composer](#getting-started-with-celo-composer)
+    - [How to Create a New Project](#how-to-create-a-new-project)
+    - [Creating a Smart Contract](#creating-a-smart-contract)
+    - [Testing the Smart Contract with Hardhat](#testing-the-smart-contract-with-hardhat)
+    - [Deploying the Smart Contract to the Celo Network](#deploying-the-smart-contract-to-the-celo-network)
+
 ## Introdcution
 
 In this article, you will learn about the following concepts:
