@@ -160,4 +160,6 @@ Let's now go through this code step by step:
 7. You declare a single test case, which sets a new value for the variable and then checks that it was set correctly.
 8. In the test case, you call the `setMyVariable` function on the `contract` instance, passing in a new value. We then use the `expect `function from `chai` to check that the value of the `myVariable` variable is equal to the new value.
 
-You will then use fllowing command to run the test:
+You will then use the following command to run the test:
+`npx hardhat test
+`
