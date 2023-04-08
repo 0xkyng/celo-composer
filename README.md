@@ -13,6 +13,7 @@
     - [Creating a Smart Contract](#creating-a-smart-contract)
     - [Testing the Smart Contract with Hardhat](#testing-the-smart-contract-with-hardhat)
     - [Deploying the Smart Contract to the Celo Network](#deploying-the-smart-contract-to-the-celo-network)
+  - [Conclusion](#conclusion)
 
 ## Introdcution
 
@@ -266,3 +267,6 @@ celocli contract:show MyContract
 Congratulations! You have successfully deployed your `MyContract` contract to the Celo network using the Celo Composer. You can now interact with your contract using the **celocli** command line tool or any other Celo-compatible wallet or application.
 
 
+## Conclusion
+
+In this tutorial, you have learned about how to install and use the Celo Composer CLI, set up Hardhat, and write, test, and deploy a smart contract.
