@@ -100,7 +100,7 @@ contract MyContract {
 }
 ```
 
-In this example, the smart contract is called "MyContract". It has a public variable called "myVariable" and a function called "setMyVariable" that sets the value of the myVariable variable.
+In this example, the smart contract is called `MyContract`. It has a public variable called `myVariable` and a function called `setMyVariable` that sets the value of the myVariable variable.
 
 #### Testing the Smart Contract with Hardhat
 
