@@ -54,10 +54,10 @@ The above command will create a new project with the basic files and directories
 
 The project structure will look like this:
 ```
-/contracts
-/migrations
-/test
-/hardhat-config.js
+contracts
+migrations
+test
+hardhat-config.js
 ```
 The contracts directory contains the smart contract files that you'll create using Celo Composer. The migrations directory will contain migration scripts that are used to deploy the smart contracts to the Celo network. The test directory will contain the tests for the smart contracts.
 
