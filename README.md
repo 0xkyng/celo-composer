@@ -1,7 +1,7 @@
 # **Celo Composer: The Ultimate Guide on How to Use it**
 
 ## Introdcution
-In this article, you will lear about the following concepts;
+In this article, you will learn about the following concepts;
 - What is Celo blockchain?
 - What is Celo Composer?
 - How to create, test and deploy smart contracts.
