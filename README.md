@@ -1,4 +1,4 @@
-# **Celo Composer: The Ultimate Guide on How to Use it.**
+# **Celo Composer: The Ultimate Guide on How to Use it**
 
 ## Introdcution
 In this article, you will lear about the following concepts;
@@ -6,7 +6,7 @@ In this article, you will lear about the following concepts;
 - What is Celo Composer?
 - How to create, test and deploy smart contracts.
 
-## Prerequisites
+<!-- ## Prerequisites -->
 
 <!-- Before we begin, make sure you have the following installed on your computer:
 
@@ -148,8 +148,16 @@ describe("MyContract", function () {
 });
 ```
 
+Let's now go through this code step by step:
+1. You require some dependencies: `chai` and `ethers` from Hardhat,
+    `@ethersproject/contracts`, and `hardhat-ethers`.
 
+2. You describe a new test suite called "MyContract".
+3. You declare some variables: `contract` to hold an instance of our `MyContract` contract, and `accounts` to hold the array of signers.
+4. You declare a `fixture` function, which returns the contract instance and signers array. This function is called once per test case.
+5. You declare a `loadFixture` function that loads the fixture for each test case.
+6. You use `beforeEach` to load the fixture and assign the `contract` and `accounts` variables.
+7. You declare a single test case, which sets a new value for the variable and then checks that it was set correctly.
+8. In the test case, you call the `setMyVariable` function on the `contract` instance, passing in a new value. We then use the `expect `function from `chai` to check that the value of the `myVariable` variable is equal to the new value.
 
-
-
-
+You will then use fllowing command to run the test:
