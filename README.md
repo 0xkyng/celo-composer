@@ -65,15 +65,21 @@ The contracts directory contains the Smart Contract files that you'll create usi
 Next, you'll need to configure Hardhat. To do this, create a new file called `hardhat.config.js` in the root directory of your project with the following code:
 
 ```perl
+// Import necessary dependencies
 require("@nomiclabs/hardhat-waffle");
 require("@nomiclabs/hardhat-ethers");
 
+// Configure the Hardhat environment
 module.exports = {
+    // Set the Solidity compiler version
     solidity: "0.8.0",
-    networks: {
+        // Define the networks to use for testing
+        networks: {
+        // Use the built-in Hardhat network for testing
         hardhat: {},
     },
 };
+
 ```
 The above configuration file specifies the Solidity version and sets up the Hardhat network.
 
@@ -90,12 +96,17 @@ Once you enter the details, Celo Composer will create a new Smart Contract file 
 For the sake of this article, the Smart Contract file will contain the basic structure of a Celo smart contract and a sample function.
 
 ```solidity
+// Specify the version of Solidity to use
 pragma solidity ^0.8.0;
 
+// Define a new contract
 contract MyContract {
+    // Declare a public state variable
     uint256 public myVariable;
-
+    
+    // Define a function to update the state variable
     function setMyVariable(uint256 _myVariable) public {
+        // Update the state variable with the provided value
         myVariable = _myVariable;
     }
 }
@@ -112,22 +123,29 @@ Before deploying the smart contract to the Celo network, you'll need to test it 
 Once these dependencies have been successfully installed, you can create a new test file in the `test` directory of our project, called `mycontract.test.js`.
 
 ```javascript
+// Import necessary dependencies
 const { expect } = require("chai");
 const { ethers } = require("hardhat");
 const { Contract } = require("@ethersproject/contracts");
 const { createFixtureLoader } = require("hardhat-ethers");
 
+// Describe the test suite
 describe("MyContract", function () {
   let contract;
   let accounts;
 
-  const fixture = async () => {
+// Define the fixture function
+const fixture = async () => {
+    // Get the deployer and other accounts
     const [deployer, ...accounts] = await ethers.getSigners();
 
+
+    // Deploy the contract
     const MyContract = await ethers.getContractFactory("MyContract", deployer);
     const contract = await MyContract.deploy();
     await contract.deployed();
 
+    // Return contract instance and other relevant data
     return {
       contract,
       deployer,
@@ -135,21 +153,29 @@ describe("MyContract", function () {
     };
   };
 
+  // Define the loadFixture function using createFixtureLoader
   const loadFixture = createFixtureLoader([ethers.provider]);
 
+  // Set up the fixture for each test using the beforeEach hook
   beforeEach(async function () {
     ({ contract, deployer, accounts } = await loadFixture(fixture));
   });
 
+  // Test that the contract sets the variable correctly
   it("should set the variable correctly", async function () {
+    // Set a new value for the variable
     const newValue = 42;
     await contract.setMyVariable(newValue);
+    
+    // Check that the variable was set to the new value
     expect(await contract.myVariable()).to.equal(newValue);
   });
 });
+
 ```
 
 Let's now go through this code step by step:
+
 1. You require some dependencies: `chai` and `ethers` from Hardhat,
     `@ethersproject/contracts`, and `hardhat-ethers`.
 
@@ -174,13 +200,16 @@ Now that, you've tested the Smart Contract and confirmed that it works, you can 
 But first, you'll need to make sure that you have the Celo network configuration set up in your `hardhat.config.js` file. You can do this by adding the following code:
 
 ```javascript
+// Importing required plugins and packages
 require("@nomiclabs/hardhat-waffle");
 require("@nomiclabs/hardhat-etherscan");
 require("@celo/hardhat-plugin");
 
+// Accessing environment variable mnemonic
 const mnemonic = process.env.MNEMONIC;
 
 module.exports = {
+  // Setting Solidity compiler version to 0.8.4
   solidity: {
     compilers: [
       {
@@ -188,22 +217,26 @@ module.exports = {
       },
     ],
   },
+  
+  // Configuring networks
   networks: {
-    hardhat: {},
-    alfajores: {
+    hardhat: {},// Setting up a hardhat network
+    alfajores: {// Setting up alfajores network
       url: "https://alfajores-forno.celo-testnet.org",
       accounts: { mnemonic: mnemonic },
       gasPrice: 1000000000,
     },
-    mainnet: {
+    mainnet: {// Setting up mainnet network
       url: "https://forno.celo.org",
       accounts: { mnemonic: mnemonic },
       gasPrice: 1000000000,
     },
   },
+  // Configuring etherscan plugin
   etherscan: {
     apiKey: process.env.ETHERSCAN_API_KEY,
   },
+  // Configuring celo plugin
   celo: {
     chainId: 44787,
     from: "0x<YOUR_CELO_ADDRESS>",
