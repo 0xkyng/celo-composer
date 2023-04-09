@@ -239,7 +239,7 @@ module.exports = {
   // Configuring celo plugin
   celo: {
     chainId: 44787,
-    from: "0x<YOUR_CELO_ADDRESS>",
+    from: "0x<YOUR_CELO_ADDRESS>", // Add your valid Celo address
     gas: 10000000,
     gasPrice: 1000000000,
   },
