@@ -269,4 +269,4 @@ Congratulations! You have successfully deployed your `MyContract` contract to th
 
 ## Conclusion
 
-In this tutorial, you have learned about how to install and use the Celo Composer CLI, set up Hardhat, and write, test, and deploy a smart contract.
+Hence, Celo Composer is a powerful tool for building decentralized applications on the Celo blockchain. With its intuitive interface, extensive documentation, and robust developer community, it offers a user-friendly and efficient solution for developers of all skill levels. This ultimate guide on how to use Celo Composer covers everything from installation and setup to deploying your smart contract and interacting with it. By following the steps outlined in this guide, you will be well on your way to creating your own decentralized applications (dApp) on the Celo blockchain.
