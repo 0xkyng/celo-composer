@@ -1,69 +1,94 @@
-# **Celo Composer: The Ultimate Guide on How to Use it**
+# Celo Composer: The Ultimate Guide on How to Use It
+
+## Table of Content
+- [Celo Composer: The Ultimate Guide on How to Use It](#celo-composer-the-ultimate-guide-on-how-to-use-it)
+  - [Table of Content](#table-of-content)
+  - [Introdcution](#introdcution)
+  - [Requirements](#requirements)
+  - [What Is Celo?](#what-is-celo)
+  - [What Is the Celo Composer?](#what-is-the-celo-composer)
+  - [How to Create, Test and Deploy Smart Contracts With Celo Composer](#how-to-create-test-and-deploy-smart-contracts-with-celo-composer)
+    - [Getting Started with Celo Composer](#getting-started-with-celo-composer)
+    - [How to Create a New Project](#how-to-create-a-new-project)
+    - [Creating a Smart Contract](#creating-a-smart-contract)
+    - [Testing the Smart Contract with Hardhat](#testing-the-smart-contract-with-hardhat)
+    - [Deploying the Smart Contract to the Celo Network](#deploying-the-smart-contract-to-the-celo-network)
+  - [Conclusion](#conclusion)
 
 ## Introdcution
-In this article, you will learn about the following concepts;
-- What is Celo blockchain?
-- What is Celo Composer?
+
+In this article, you will learn about the following concepts:
+- The Celo blockchain.
+- The Celo Composer.
 - How to create, test and deploy smart contracts.
 
-<!-- ## Prerequisites -->
+## Requirements
 
-<!-- Before we begin, make sure you have the following installed on your computer:
+Before we begin, make sure you have the following installed on your computer:
 
-- Node.js and NPM
-- Hardhat
-- Celo Wallet -->
+- [Node.js](https://nodejs.org/) and NPM
+- [Hardhat](https://hardhat.org/)
+- Celo Wallet
 
 So now, let's delve in.
 
-### What is Celo?
-**[Celo](https://docs.celo.org/learn/celo-overview)** is a mobile-first blockchain that makes decentralized financial (DeFi) tools and services accessible to anyone with a mobile phone. It aims to break down barriers by bringing the powerful benefits of DeFi to the users of the 6 billion smartphones in circulation today.
+## What Is Celo?
+**[Celo](https://docs.celo.org/learn/celo-overview)** is a mobile-first blockchain that makes decentralized financial (DeFi) tools and services accessible to anyone with a mobile phone. It aims to break down barriers by bringing the powerful benefits of DeFi to the users of the six billion smartphones in circulation today.
 
 It is designed to provide a stablecoin (cUSD) that is pegged to the US dollar, as well as a suite of decentralized applications (dApps) that can be used to access financial services such as remittances, loans, and micropayments.
 
-### What is Celo Composer?
-**[Celo Composer](https://github.com/celo-org/celo-composer)** is a tool built by the Celo team that allows you to quickly build, deploy, and iterate on decentralized applications using Celo. It provides a number of frameworks, examples, and Celo specific functionality to help you get started with your next dApp.
+## What Is the Celo Composer?
+**[Celo Composer](https://github.com/celo-org/celo-composer)** is a tool built by the Celo team that allows you to quickly build, deploy, and iterate on decentralized applications using Celo. It provides a number of frameworks, examples, and Celo-specific functionality to help you get started with your next dApp.
 
-### How to Create, Test and Deploy smart contracts with Celo Composer
+## How to Create, Test and Deploy Smart Contracts With Celo Composer
 
-#### Getting Started with Celo Composer
+### Getting Started with Celo Composer
 
-You'll need to install the Celo Composer CLI, which is a command-line interface that interacts with the Celo network in other to get started. This is because Celo Composer is an open-source tool that is available on Github.
+You'll need to install the Celo Composer CLI, which is a command-line interface that interacts with the Celo network in other to get started. This is because Celo Composer is an open-source tool that is available on GitHub.
 
 But firstly, ensure that you have **[NodeJS](https://nodejs.org/en/download)** and **[NPM](https://www.npmjs.com/)** installed on your computer. Next, open a terminal and run the following command to install the Composer CLI:
 
-`npm install -g @celo/contractkit`
+```bash
+npm install -g @celo/contractkit
+```
 
 You can run the command below to verify that the CLI is installed correctly, once the installation is complete:
 
-`celocli`
+```bash
+celocli
+```
 
 This command should output the list of available commands for the CLI.
 
 Next, you'll need to install Hardhat. You can install Hardhat using the following command:
 
-`npm install --save-dev hardhat`
+```bash
+npm install --save-dev hardhat
+```
 
-#### How to Create a New Project 
+### How to Create a New Project 
 
 To create a new project, you can use the following command:
 
-`celocli init`
+```bash
+celocli init
+```
 
 The above command will create a new project with the basic files and directories required to create and deploy smart contracts.
 
 The project structure will look like this:
+
 ```
 contracts
 migrations
 test
 hardhat-config.js
 ```
-The contracts directory contains the smart contract files that you'll create using Celo Composer. The migrations directory will contain migration scripts that are used to deploy the smart contracts to the Celo network. The test directory will contain the tests for the smart contracts.
+The contracts directory contains the smart contract files that you'll create using the Celo Composer. The migrations directory will contain migration scripts that are used to deploy the smart contracts to the Celo network. The test directory will contain the tests for the smart contracts.
 
-Next, you'll need to configure Hardhat. To do this, create a new file called `hardhat.config.js` in the root directory of your project with the following code:
+Next, you'll need to configure Hardhat. To do this, create a new file called `hardhat.config.js` in the root directory of your project and paste the following code:
 
-```perl
+```js
 require("@nomiclabs/hardhat-waffle");
 require("@nomiclabs/hardhat-ethers");
 
@@ -76,15 +101,17 @@ module.exports = {
 ```
 The above configuration file specifies the Solidity version and sets up the Hardhat network.
 
-#### Creating a Smart Contract
+### Creating a Smart Contract
 
 To create a new smart contract, you can use the following command:
 
-`celocli create:contract`
+```bash
+celocli create:contract
+```
 
 This command will prompt you to enter the name of the smart contract and the directory where you want to create it.
 
-Once you enter the details, Celo Composer will create a new smart contract file with the given name in the specified directory.
+Once you enter the details, the Celo Composer will create a new smart contract file with the given name in the specified directory.
 
 For the sake of this article, the smart contract file will contain the basic structure of a Celo smart contract and a sample function.
 
@@ -100,9 +127,9 @@ contract MyContract {
 }
 ```
 
-In this example, the smart contract is called `MyContract`. It has a public variable called `myVariable` and a function called `setMyVariable` that sets the value of the myVariable variable.
+In this example, the smart contract is called `MyContract`. It has a public variable called `myVariable` and a function called `setMyVariable` that sets the value of the `myVariable` variable.
 
-#### Testing the Smart Contract with Hardhat
+### Testing the Smart Contract with Hardhat
 
 Before deploying the smart contract to the Celo network, you'll need to test it to ensure that it works as expected. But first, you need to install some additional dependencies to enable Hardhat to interact with the Celo network. You'll need to install `@celo/contractkit` and `@nomiclabs/hardhat-etherscan` as follows:
 
@@ -162,11 +189,13 @@ Let's now go through this code step by step:
 
 You will then use the following command to run the test:
 
-`npx hardhat test`
+```bash
+npx hardhat test
+```
 
 This will run the `mycontract.test.js` test file and output the results.
 
-#### Deploying the Smart Contract to the Celo Network
+### Deploying the Smart Contract to the Celo Network
 
 Now that you've tested the smart contract and confirmed that it works as expected, you can deploy it to the Celo network using Celo Composer.
 
@@ -218,17 +247,26 @@ Once you have a Celo account set up, you can use Celo Composer to deploy your `M
 
 Compile the contract using the following command:
 
-`celocli compile`
+```bash
+celocli compile
+```
 
 Deploy the contract to the Celo network using the following command:
 
-`celocli deploy MyContract --from <YOUR_CELO_ADDRESS>`
+```bash
+celocli deploy MyContract --from <YOUR_CELO_ADDRESS>
+```
 
 Confirm the deployment on the Celo network using the following command:
 
-`celocli contract:show MyContract`
+```bash
+celocli contract:show MyContract
+```
 
 
-Congratulations! You have successfully deployed your `MyContract` contract to the Celo network using Celo Composer. You can now interact with your contract using the celocli command line tool or any other Celo-compatible wallet or application.
+Congratulations! You have successfully deployed your `MyContract` contract to the Celo network using the Celo Composer. You can now interact with your contract using the **celocli** command line tool or any other Celo-compatible wallet or application.
 
 
+## Conclusion
+
+In this tutorial, you have learned about how to install and use the Celo Composer CLI, set up Hardhat, and write, test, and deploy a smart contract.
