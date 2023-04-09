@@ -28,7 +28,7 @@ Before we begin, make sure you have the following installed on your computer:
 
 - [Node.js](https://nodejs.org/) and NPM
 - [Hardhat](https://hardhat.org/)
-- Celo Wallet
+- [Celo Wallet](https://celowallet.app/setup)
 
 So now, let's delve in.
 
